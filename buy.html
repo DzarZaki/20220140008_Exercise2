@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket Purchase Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="buy.css">
+  <style>
+    .transparent-box {
+      background-color: rgba(237, 226, 226, 0.5); /* Ubah opacity sesuai kebutuhan */
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid rgba(0, 0, 0, 0.2); /* Garis tepi dengan opacity 0.2 */
+    }
+    
+    .transparent-box img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    
+    .transparent-box video {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+   
+  <div class="container form-container">
+    <h1 class="text-center">Ticket Purchase Form</h1>
+    
+    <!-- Mulai Transparent Box -->
+    <div class="transparent-box">
+      
+      <!-- Audio Container -->
+      <div class="audio-container">
+        <h3>OST Suzume No Tojimari</h3>
+        <audio controls>
+          <source src="3DOST-.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      
+      <!-- Form Purchase -->
+      <form id="ticketForm">
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" class="form-control" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" class="form-control" id="time" required>
+        </div>
+        <div class="form-group">
+          <label for="seats">Number of Seats</label>
+          <input type="number" class="form-control" id="seats" placeholder="Enter number of seats" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" placeholder="Enter phone number" required>
+        </div>
+        
+        <!-- Radio Button Options -->
+        <div class="form-group">
+          <label for="preference">Harga tiket</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="preference" id="preference1" value="Option 1" required>
+            <label class="form-check-label" for="preference1">
+              Reguler Rp 50.000
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="preference" id="preference2" value="Option 2">
+            <label class="form-check-label" for="preference2">
+              VIP Rp 150.000
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="preference" id="preference3" value="Option 3">
+            <label class="form-check-label" for="preference3">
+              VVIP Rp 300.000
+            </label>
+          </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Purchase Ticket</button>
+      </form>
+      
+      <!-- Output Display Area -->
+      <div id="formOutput" class="mt-5"></div>
+      
+    </div>
+    <!-- Akhir Transparent Box -->
+    
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    document.getElementById('ticketForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      showInfo();
+    });
+
+    function showInfo() {
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const seats = document.getElementById('seats').value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const preference = document.querySelector('input[name="preference"]:checked');
+      const preferenceValue = preference ? preference.value : 'Not specified';
+
+      const output = `
+        <h2>Ticket Purchase Details</h2>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Time:</strong> ${time}</p>
+        <p><strong>Number of Seats:</strong> ${seats}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Preference:</strong> ${preferenceValue}</p>
+      `;
+      
+      document.getElementById('formOutput').innerHTML = output;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    background-image: url('suzume-no-tojimari-4k-wallpapers.jpg'); /* Menambahkan gambar latar belakang */
+    background-size: cover; /* Menyesuaikan gambar dengan ukuran layar */
+    background-repeat: no-repeat; /* Menghentikan pengulangan gambar */
+    background-position: center; /* Memposisikan gambar di tengah */
+}
+
+.content-container {
+    margin-top: 50px;
+  }
+  
+  .audio-container {
+    margin-top: 20px;
+  }
+  
+  .video-placeholder {
+    background-color: #f0f0f0;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .video-placeholder i {
+    font-size: 50px;
+    color: #888;
+  }
+  
+  .image-placeholder {
+    background-color: #f0f0f0;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .image-placeholder i {
+    font-size: 50px;
+    color: #888;
+  }
+  
